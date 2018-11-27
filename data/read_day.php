@@ -3,12 +3,18 @@
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 
-$file="tester.csv";
-// $csv= file_get_contents($file);
+// check request filed exists
+if(file_exists("tester.csv")){
+  //Open our CSV file using the fopen function.
+  $fh = fopen("tester.csv", "r");
+  //Setup a PHP array to hold our CSV rows.
+  $csvData = array();
 
-// check csv has more than one line
-if($csv = file_get_contents($file) !== false){
-  $array = array_map("str_getcsv", explode("\n", $csv));
+  //Loop through the rows in our CSV file and add them to
+  //the PHP array that we created above.
+  while (($row = fgetcsv($fh, 0, ",")) !== FALSE) {
+      $csvData[] = $row;
+  }
 
   // set response code - 200 OK
   http_response_code(200);
