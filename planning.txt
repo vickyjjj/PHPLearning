@@ -3,6 +3,8 @@ isset($_GET['date']) ? $_GET['date'] : die();
 date format: MMDDYYYY
 isset($_GET['measure']) ? $_GET['measure'] : die();
 measure: temp, humid, accel
+isset($_GET['raw']) ? $_GET['raw'] : die();
+raw: true, false
 
 read_day_time
 isset($_GET['date']) ? $_GET['date'] : die();

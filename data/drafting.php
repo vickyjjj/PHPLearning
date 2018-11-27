@@ -7,8 +7,10 @@ header("Access-Control-Allow-Credentials: true");
 header('Content-Type: application/json');
 
 $date = isset($_GET['date']) ? $_GET['date'] : die();
+$measure = isset($_GET['measure']) ? $_GET['measure'] : die();
+$raw = isset($_GET['raw']) ? $_GET['raw'] : die();
 
-$addr = "../../../../Documents/testing/sense_hat/data/temperature1/tester.csv";
+$addr = "../../../../../home/pi/Documents/testing/sense_hat/data/nov15/" . $measure . "-" . $date . ".csv";
 // check request filed exists
 if(file_exists($addr)){
   //Open our CSV file using the fopen function.
