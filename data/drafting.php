@@ -12,7 +12,7 @@ $measure = isset($_GET['measure']) ? $_GET['measure'] : die();
 $raw = isset($_GET['raw']) ? $_GET['raw'] : FALSE;
 $rawstr = "";
 // set raw
-if ((bool)$raw) {
+if ($raw) {
   $rawstr = "raw/";
 }
 
