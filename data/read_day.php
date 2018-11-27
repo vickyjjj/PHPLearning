@@ -20,7 +20,7 @@ if(file_exists("tester.csv")){
   http_response_code(200);
 
   // show products data in json format
-  echo json_encode($array);
+  echo json_encode($csvData);
 } else{
 
     // set response code - 404 Not found
