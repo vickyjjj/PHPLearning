@@ -36,6 +36,6 @@ if(file_exists($addr)){
 
     // tell the user no products found
     echo json_encode(
-        array("message" => "No data found.")
+        array("message" => "No data found at " . $addr)
     );
 }
