@@ -8,6 +8,8 @@ header('Content-Type: application/json');
 
 // get parameter values; must specify date and measurement
 $date = isset($_GET['date']) ? $_GET['date'] : die();
+$starting = isset($_GET['start']) ? $_GET['start'] : '00:00';
+$ending = isset($_GET['end']) ? $_GET['end'] : '23:59';
 $measure = isset($_GET['measure']) ? $_GET['measure'] : die();
 $raw = isset($_GET['raw']) ? filter_var($_GET['raw'], FILTER_VALIDATE_BOOLEAN) : FALSE;
 $rawstr = "";

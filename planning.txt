@@ -1,3 +1,9 @@
+read_today
+isset($_GET['measure']) ? $_GET['measure'] : die();
+measure: temp, humid, accel
+isset($_GET['raw']) ? $_GET['raw'] : die();
+raw: true, false
+
 read_day
 isset($_GET['date']) ? $_GET['date'] : die();
 date format: MMDDYYYY
@@ -15,13 +21,15 @@ isset($_GET['start']) ? $_GET['start'] : die();
 time format: HHMM
 isset($_GET['end']) ? $_GET['end'] : die();
 time format: HHMM
+isset($_GET['raw']) ? $_GET['raw'] : die();
+raw: true, false
 
-read_day_time
-isset($_GET['date']) ? $_GET['date'] : die();
-date format: MMDDYYYY
+read_days
 isset($_GET['measure']) ? $_GET['measure'] : die();
 measure: temp, humid, accel
 isset($_GET['start']) ? $_GET['start'] : die();
 time format: HHMM
 isset($_GET['end']) ? $_GET['end'] : die();
 time format: HHMM
+isset($_GET['raw']) ? $_GET['raw'] : die();
+raw: true, false
