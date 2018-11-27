@@ -1,7 +1,12 @@
 <?php
 // required headers
 header("Access-Control-Allow-Origin: *");
-header("Content-Type: application/json; charset=UTF-8");
+header("Access-Control-Allow-Headers: access");
+header("Access-Control-Allow-Methods: GET");
+header("Access-Control-Allow-Credentials: true");
+header('Content-Type: application/json');
+
+$date = isset($_GET['date']) ? $_GET['date'] : die();
 
 $addr = "../../../../Documents/testing/sense_hat/data/temperature1/tester.csv";
 // check request filed exists
