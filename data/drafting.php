@@ -9,7 +9,7 @@ header('Content-Type: application/json');
 // get parameter values; must specify date and measurement
 $date = isset($_GET['date']) ? $_GET['date'] : die();
 $measure = isset($_GET['measure']) ? $_GET['measure'] : die();
-$raw = isset($_GET['raw']) ? filter_var($_GET['myVar'], FILTER_VALIDATE_BOOLEAN) : FALSE;
+$raw = isset($_GET['raw']) ? $_GET['myVar'] == 'true' ? TRUE : FALSE : FALSE;
 $rawstr = "";
 
 // set raw
