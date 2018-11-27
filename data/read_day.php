@@ -3,7 +3,7 @@
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 
-$addr = "/Documents/testing/sense_hat/data/temperature1/tester.csv";
+$addr = "../../../../home/pi/Documents/testing/sense_hat/data/temperature1/tester.csv";
 // check request filed exists
 if(file_exists($addr)){
   //Open our CSV file using the fopen function.
