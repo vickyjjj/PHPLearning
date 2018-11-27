@@ -1,0 +1,25 @@
+read_day
+isset($_GET['date']) ? $_GET['date'] : die();
+date format: MMDDYYYY
+isset($_GET['measure']) ? $_GET['measure'] : die();
+measure: temp, humid, accel
+
+read_day_time
+isset($_GET['date']) ? $_GET['date'] : die();
+date format: MMDDYYYY
+isset($_GET['measure']) ? $_GET['measure'] : die();
+measure: temp, humid, accel
+isset($_GET['start']) ? $_GET['start'] : die();
+time format: HHMM
+isset($_GET['end']) ? $_GET['end'] : die();
+time format: HHMM
+
+read_day_time
+isset($_GET['date']) ? $_GET['date'] : die();
+date format: MMDDYYYY
+isset($_GET['measure']) ? $_GET['measure'] : die();
+measure: temp, humid, accel
+isset($_GET['start']) ? $_GET['start'] : die();
+time format: HHMM
+isset($_GET['end']) ? $_GET['end'] : die();
+time format: HHMM
