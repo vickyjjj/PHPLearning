@@ -18,7 +18,7 @@ if ($raw) {
 }
 
 // create address
-$addr = "/home/pi/Documents/testing/sense_hat/data/nov15/" . $rawstr . $measure . "-" . $date . ".csv";
+$addr = "/home/pi/Documents/testing/sense_hat/data/iter3/" . $rawstr . $measure . "-" . $date . ".csv";
 
 // check requested file exists
 if(file_exists($addr)){
