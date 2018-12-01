@@ -32,7 +32,8 @@ if(file_exists($addr)) {
     //Loop through the rows in our CSV file and add them to
     //the PHP array that we created above.
     while (($row = fgetcsv($fh, 0, ",")) !== FALSE) {
-        $csvData[] = $row;
+        //$csvData[] = $row;
+        array_push($csvData, $row);
     }
 
     // iterate date
