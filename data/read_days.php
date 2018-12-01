@@ -23,11 +23,11 @@ $addr = "/home/pi/Documents/testing/sense_hat/data/iter2/" . $rawstr . $measure 
 
 // check requested file exists
 if(file_exists($addr)) {
+  //Setup a PHP array to hold our CSV rows.
+  $csvData = array();
   while (TRUE) {
     //Open our CSV file using the fopen function.
     $fh = fopen($addr, "r");
-    //Setup a PHP array to hold our CSV rows.
-    $csvData = array();
 
     //Loop through the rows in our CSV file and add them to
     //the PHP array that we created above.
