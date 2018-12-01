@@ -8,7 +8,7 @@ header('Content-Type: application/json');
 
 // get parameter values; must specify date and measurement
 $starting = isset($_GET['start']) ? $_GET['start'] : die();
-$ending = isset($_GET['end']) ? $_GET['end'] : date("Y-m-d");;
+$ending = isset($_GET['end']) ? $_GET['end'] : date("Y-m-d");
 $measure = isset($_GET['measure']) ? $_GET['measure'] : die();
 $raw = isset($_GET['raw']) ? filter_var($_GET['raw'], FILTER_VALIDATE_BOOLEAN) : FALSE;
 $rawstr = "";
@@ -23,7 +23,7 @@ $addr = "/home/pi/Documents/testing/sense_hat/data/iter2/" . $rawstr . $measure 
 
 // check requested file exists
 if(file_exists($addr)){
-  while ($starting !== $ending) {
+  while (TRUE) {
     //Open our CSV file using the fopen function.
     $fh = fopen($addr, "r");
     //Setup a PHP array to hold our CSV rows.
@@ -35,7 +35,7 @@ if(file_exists($addr)){
         $csvData[] = $row;
     }
 
-    // iterate next date
+    // ne
     if ($starting !== $ending) {
       $starting = strtotime("+1 day", strtotime($starting));
       $addr = "/home/pi/Documents/testing/sense_hat/data/iter2/" . $rawstr . $measure . "-" . $starting . ".csv";
