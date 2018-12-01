@@ -37,9 +37,7 @@ if(file_exists($addr)) {
 
     // iterate date
     if ($starting !== $ending) {
-      print($starting);
-      print($ending);
-      $starting = strtotime("+1 day", strtotime($starting));
+      $starting = date("Y-m-d", strtotime("+1 day", strtotime($starting)));
       $addr = "/home/pi/Documents/testing/sense_hat/data/iter2/" . $rawstr . $measure . "-" . $starting . ".csv";
     } else {
       break;
