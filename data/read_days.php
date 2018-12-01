@@ -23,7 +23,7 @@ $addr = "/home/pi/Documents/testing/sense_hat/data/iter2/" . $rawstr . $measure 
 
 // check requested file exists
 if(file_exists($addr)){
-  while (TRUE) {
+  while ($starting !== $ending) {
     //Open our CSV file using the fopen function.
     $fh = fopen($addr, "r");
     //Setup a PHP array to hold our CSV rows.
@@ -34,6 +34,8 @@ if(file_exists($addr)){
     while (($row = fgetcsv($fh, 0, ",")) !== FALSE) {
         $csvData[] = $row;
     }
+
+    // iterate next date
     if ($starting !== $ending) {
       $starting = strtotime("+1 day", strtotime($starting));
       $addr = "/home/pi/Documents/testing/sense_hat/data/iter2/" . $rawstr . $measure . "-" . $starting . ".csv";
