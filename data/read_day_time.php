@@ -7,7 +7,7 @@ header("Access-Control-Allow-Credentials: true");
 header('Content-Type: application/json');
 
 // get parameter values; must specify date and measurement
-$date = isset($_GET['date']) ? $_GET['date'] : die();
+$date = isset($_GET['date']) ? $_GET['date'] : date("Y-m-d");
 $starting = isset($_GET['start']) ? $_GET['start'] : '00:00';
 $ending = isset($_GET['end']) ? $_GET['end'] : '23:59';
 $measure = isset($_GET['measure']) ? $_GET['measure'] : die();

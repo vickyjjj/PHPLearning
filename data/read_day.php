@@ -30,7 +30,10 @@ if(file_exists($addr)){
   //Loop through the rows in our CSV file and add them to
   //the PHP array that we created above.
   while (($row = fgetcsv($fh, 0, ",")) !== FALSE) {
-      $csvData[] = $row;
+      $temp = array();
+      $temp[0] = $row[0];
+      $temp[1] = floatval($row[1]);
+      $csvData[] = $temp;
   }
 
   // set response code - 200 OK
