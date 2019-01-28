@@ -33,7 +33,10 @@ if(file_exists($addr)) {
     //the PHP array that we created above.
     while (($row = fgetcsv($fh, 0, ",")) !== FALSE) {
         //$csvData[] = $row;
-        array_push($csvData, $row);
+        $temp = array();
+        $temp[0] = $row[0];
+        $temp[1] = doubleval($row[1]);
+        array_push($csvData, $temp);
     }
 
     // iterate date
