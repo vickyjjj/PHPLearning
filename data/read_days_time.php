@@ -7,8 +7,10 @@ header("Access-Control-Allow-Credentials: true");
 header('Content-Type: application/json');
 
 // get parameter values; must specify date and measurement
-$starting = isset($_GET['start']) ? $_GET['start'] : date("Y-m-d");
-$ending = isset($_GET['end']) ? $_GET['end'] : date("Y-m-d");
+$sdate = isset($_GET['start']) ? $_GET['sdate'] : date("Y-m-d");
+$edate = isset($_GET['end']) ? $_GET['edate'] : date("Y-m-d");
+$starting = isset($_GET['start']) ? $_GET['start'] : '00:00';
+$ending = isset($_GET['end']) ? $_GET['end'] : '23:59';
 $measure = isset($_GET['measure']) ? $_GET['measure'] : die();
 $raw = isset($_GET['raw']) ? filter_var($_GET['raw'], FILTER_VALIDATE_BOOLEAN) : FALSE;
 $rawstr = "";
@@ -19,7 +21,7 @@ if ($raw) {
 }
 
 // create address
-$addr = "/home/pi/Documents/testing/sense_hat/data/iter2/" . $rawstr . $measure . "-" . $starting . ".csv";
+$addr = "/home/pi/Documents/testing/sense_hat/data/iter2/" . $rawstr . $measure . "-" . $sdate . ".csv";
 
 // check requested file exists
 if(file_exists($addr)) {
@@ -53,9 +55,9 @@ if(file_exists($addr)) {
     }
 
     // iterate date
-    if ($starting !== $ending) {
-      $starting = date("Y-m-d", strtotime("+1 day", strtotime($starting)));
-      $addr = "/home/pi/Documents/testing/sense_hat/data/iter2/" . $rawstr . $measure . "-" . $starting . ".csv";
+    if ($sdate !== $edate) {
+      $sdate = date("Y-m-d", strtotime("+1 day", strtotime($sdate)));
+      $addr = "/home/pi/Documents/testing/sense_hat/data/iter2/" . $rawstr . $measure . "-" . $sdate . ".csv";
     } else {
       break;
     }
