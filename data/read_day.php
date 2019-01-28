@@ -32,7 +32,7 @@ if(file_exists($addr)){
   while (($row = fgetcsv($fh, 0, ",")) !== FALSE) {
       $temp = array();
       $temp[0] = $row[0];
-      $temp[1] = floatval($row[1]);
+      $temp[1] = doubleval($row[1]);
       $csvData[] = $temp;
   }
 
