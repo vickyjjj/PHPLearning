@@ -28,11 +28,28 @@ if(file_exists($addr)){
   $fh = fopen($addr, "r");
   //Setup a PHP array to hold our CSV rows.
   $csvData = array();
+  // boolean to indicate in time frame
+  $timeFrame = FALSE;
 
   //Loop through the rows in our CSV file and add them to
   //the PHP array that we created above.
   while (($row = fgetcsv($fh, 0, ",")) !== FALSE) {
-      $csvData[] = $row;
+      // TODO hard code: time characters are positions 11-15 in date/time column values
+      // check if start time
+      if (substr($row[0], 11, 5) === $starting) {
+        $timeFrame = TRUE;
+      }
+      // add value to output
+      if ($timeFrame) {
+        $temp = array();
+        $temp[0] = $row[0];
+        $temp[1] = doubleval($row[1]);
+        $csvData[] = $temp;
+      }
+      // check if end time
+      if (substr($row[0], 11, 5) === $ending) {
+        $timeFrame = FALSE;
+      }
   }
 
   // set response code - 200 OK
